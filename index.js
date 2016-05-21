@@ -10,10 +10,8 @@ module.exports = function(content) {
 
   var query = loaderUtils.parseQuery(this.query);
   var limit = (this.options && this.options.url && this.options.url.dataUrlLimit) || 0;
-  var emit = true;
 
   if (query.limit) limit = parseInt(query.limit, 10);
-  if (typeof query.emit !== 'undefined' && query.emit === 'false') emit = false;
 
   var mimetype = query.mimetype ||
                  query.minetype ||
@@ -23,17 +21,17 @@ module.exports = function(content) {
   if (limit <= 0 || content.length < limit) {
     return "module.exports = " + JSON.stringify("data:" + (mimetype ? mimetype + ";" : "") + "base64," + content.toString("base64"));
   // Use file-loader
-  } else if (emit) {
-    var fileLoader = require("file-loader");
-    return fileLoader.call(this, content);
-  // Use file-loader without emitting files
-  } else {
+  } else if (typeof query.emit !== 'undefined' && !query.emit) {
     var url = loaderUtils.interpolateName(this, query.name || "[hash].[ext]", {
       context: query.context || this.options.context,
       content: content,
       regExp: query.regExp
     });
     return "module.exports = __webpack_public_path__ + " + JSON.stringify(url) + ";";
+  // Use file-loader without emitting files
+  } else {
+    var fileLoader = require("file-loader");
+    return fileLoader.call(this, content);
   }
 }
 
