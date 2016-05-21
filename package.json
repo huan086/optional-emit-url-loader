@@ -1,0 +1,18 @@
+{
+  "name": "optional-emit-url-loader",
+  "version": "0.5.7",
+  "author": "Billy Kwok <xobkwok@gmail.com> (http://billykwok.github.io/)",
+  "description": "url loader module for webpack",
+  "dependencies": {
+    "loader-utils": "0.2.x",
+    "mime": "1.2.x"
+  },
+  "peerDependencies": {
+    "file-loader": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:billykwok/optional-emit-url-loader.git"
+  },
+  "license": "MIT"
+}
