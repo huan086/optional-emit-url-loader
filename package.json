@@ -1,6 +1,6 @@
 {
   "name": "optional-emit-url-loader",
-  "version": "0.5.7",
+  "version": "0.5.8",
   "author": "Billy Kwok <xobkwok@gmail.com> (http://billykwok.github.io/)",
   "description": "url loader module for webpack",
   "dependencies": {
