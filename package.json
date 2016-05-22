@@ -5,8 +5,8 @@
   "description": "url loader module for webpack",
   "keyword": ["url-loader", "no emission", "isomorphic", "server side rendering", "React", "webpack"],
   "dependencies": {
-    "loader-utils": "0.2.x",
-    "mime": "1.2.x"
+    "loader-utils": "^0.2.15",
+    "mime": "^1.3.4"
   },
   "peerDependencies": {
     "file-loader": "*"
